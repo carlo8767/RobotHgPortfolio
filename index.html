@@ -1,151 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Java Software Engineer | Portfolio</title>
-  <style>
-    body {
-      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Java Software Engineer | Portfolio</title>
+<style>
+/* ---------- GLOBAL ---------- */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
     }
-    header {
-      background-color: #1e1e1e;
-      color: #fff;
-      text-align: center;
-      padding: 3rem 1rem;
+:root {
+--bg: #1e1e1e;
+--bg-image: url("https://img.freepik.com/free-vector/5g-networking-technology-background-vector-with-blue-digital-line_53876-126043.jpg");
+--card-bg: #2a2a2a;
+--text: #eee;
+--accent: #00aaff;
+--accent-light: #66d9ff;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
+body.light {
+--bg: #f5f5f5;
+--bg-image: url("https://t3.ftcdn.net/jpg/07/83/14/30/360_F_783143089_ThXXuuOVsXsUUDP9oGGLGseQgAzaPdkA.jpg");
+--card-bg: #ffffff;
+--text: #111;
+--accent: #0077cc;
+--accent-light: #3399ff;
     }
-    header p {
-      font-size: 1.1rem;
-      color: #ccc;
+body {
+font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background-color: var(--bg);
+background-image: var(--bg-image);
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+color: var(--text);
+line-height: 1.7;
+overflow-x: hidden;
+scroll-behavior: smooth;
+transition: background 0.5s, color 0.5s;
     }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+a {
+color: var(--accent);
+text-decoration: none;
+transition: color 0.3s ease;
     }
-    section {
-      margin-bottom: 2rem;
+a:hover {
+color: var(--accent-light);
     }
-    h2 {
-      color: #007acc;
-      border-bottom: 2px solid #007acc;
-      padding-bottom: 0.5rem;
+h1, h2, h3 {
+color: var(--accent);
+margin-bottom: 0.5rem;
     }
-    ul {
-      list-style-type: none;
-      padding: 0;
+main {
+display: flex;
+flex-direction: column;
+align-items: center;
+max-width: 900px;
+margin: 4rem auto;
+background-color: var(--card-bg);
+padding: 2rem 3rem;
+border-radius: 12px;
+box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+animation: fadeIn 1.2s ease;
+transition: background 0.5s;
     }
-    ul li::before {
-      content: "• ";
-      color: #007acc;
+header {
+text-align: center;
+padding: 4rem 1rem 2rem;
+background: radial-gradient(circle at top, var(--card-bg) 20%, var(--bg) 90%);
+position: relative;
     }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #1e1e1e;
-      color: #aaa;
-      font-size: 0.9rem;
+header h1 {
+font-size: 2.5rem;
+margin-bottom: 0.8rem;
     }
-    a {
-      color: #007acc;
-      text-decoration: none;
+header p {
+font-size: 1.1rem;
+color: #bbb;
     }
-    a:hover {
-      text-decoration: underline;
+section {
+margin: 2.5rem 0;
+width: 100%;
+opacity: 0;
+transform: translateY(30px);
+transition: all 0.6s ease-out;
     }
-  </style>
+section.visible {
+opacity: 1;
+transform: translateY(0);
+    }
+ul {
+list-style: none;
+padding: 0;
+margin-top: 0.8rem;
+    }
+ul li {
+transition: transform 0.2s ease, color 0.2s;
+    }
+ul li:hover {
+transform: translateX(8px);
+color: var(--accent-light);
+    }
+ul li::before {
+content: "▹ ";
+color: var(--accent);
+font-weight: bold;
+    }
+footer {
+text-align: center;
+padding: 2rem 1rem;
+color: #888;
+font-size: 0.9rem;
+background-color: #1b1b1b;
+    }
+/* ---------- GITHUB SECTION ---------- */
+.github-stats {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1.5rem;
+margin-top: 1rem;
+    }
+.github-stats img {
+max-width: 100%;
+border-radius: 10px;
+box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+transition: transform 0.3s ease;
+    }
+.github-stats img:hover {
+transform: scale(1.03);
+    }
+/* ---------- TOGGLE ---------- */
+.toggle-theme {
+position: absolute;
+top: 1.2rem;
+right: 1.5rem;
+cursor: pointer;
+background: none;
+border: 2px solid var(--accent);
+color: var(--accent);
+padding: 0.4rem 0.8rem;
+border-radius: 20px;
+transition: all 0.3s ease;
+    }
+.toggle-theme:hover {
+background-color: var(--accent);
+color: #fff;
+    }
+/* ---------- SCROLL TOP ---------- */
+#scrollTopBtn {
+display: none;
+position: fixed;
+bottom: 30px;
+right: 30px;
+z-index: 99;
+border: none;
+background-color: var(--accent);
+color: white;
+padding: 10px 14px;
+border-radius: 50%;
+font-size: 1.4rem;
+cursor: pointer;
+transition: background 0.3s, transform 0.3s;
+    }
+#scrollTopBtn:hover {
+background-color: var(--accent-light);
+transform: translateY(-4px);
+    }
+/* ---------- COLLAPSIBLE SECTIONS ---------- */
+details summary {
+cursor: pointer;
+font-weight: bold;
+color: var(--accent);
+margin-bottom: 0.5rem;
+    }
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 700px) {
+main {
+padding: 1.5rem;
+      }
+header h1 {
+font-size: 2rem;
+      }
+    }
+</style>
 </head>
 <body>
-
-  <header>
-    <h1>Hi, I’m a Java Software Engineer 👋</h1>
-    <p>Building scalable backend solutions with Java, Spring Boot, and AWS</p>
-  </header>
-
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I am a <strong>Java Software Engineer</strong> with international experience in 
-        <strong>Germany, Italy, and Australia</strong>, specializing in 
-        <strong>Spring Boot</strong>, <strong>Microservices</strong>, and <strong>AWS</strong>.
-        I’m passionate about building high-performance software and improving workflows through 
-        <strong>Agile methodologies</strong> and <strong>team collaboration</strong>.
-      </p>
-      <p>
-        Currently pursuing a <strong>Bachelor’s in Computer Science in Leipzig</strong>, 
+<header>
+<button class="toggle-theme">🌙</button>
+<h1 id="typedText"></h1>
+<p>Building scalable backend solutions with Java, Spring Boot, and AWS</p>
+</header>
+<main>
+<section id="about">
+<h2>About Me</h2>
+<p>
+        I am a <strong>Java Software Engineer</strong> with international experience in
+<strong>Germany, Italy, and Australia</strong>, specializing in
+<strong>Spring Boot</strong>, <strong>Microservices</strong>, and <strong>AWS</strong>.
+</p>
+<p>
+        Currently pursuing a <strong>Bachelor’s in Computer Science in Leipzig</strong>,
         focusing on algorithms, computer architecture, and machine learning.
-      </p>
-    </section>
-
-    <section id="skills">
-      <h2>Technical Skills</h2>
-      <ul>
-        <li>Java, Spring Boot, Spring MVC, JUnit, Mockito</li>
-        <li>Microservices, REST API Design, AWS (S3, Lambda, Cognito)</li>
-        <li>SQL, Redis, Docker, Jenkins, Postman</li>
-        <li>Agile / Scrum, Git, Jira, Power BI</li>
-      </ul>
-    </section>
-
-    <section id="experience">
-      <h2>Professional Experience</h2>
-      <ul>
-        <li><strong>MDR (Germany)</strong> – Java Software Developer (2024–2025)</li>
-        <li><strong>Spindox (Italy)</strong> – Java Software Engineer (2023)</li>
-        <li><strong>Konnech (Australia)</strong> – Java Software Engineer (2022–2023)</li>
-        <li><strong>Nextre & Accenture (Italy)</strong> – Java Engineer (2021–2022)</li>
-      </ul>
-    </section>
-
-    <section id="education">
-      <h2>Education</h2>
-      <p><strong>Bachelor of Computer Science</strong> – Leipzig University (2024–Present)</p>
-      <ul>
-        <li>Languages: Python, C, Java</li>
-        <li>Algorithms: Dijkstra, Insertion Sort, Binary Search</li>
-        <li>Machine Learning: Smile Classification & Clustering</li>
-      </ul>
-    </section>
-
-      <!-- GitHub Summary Section -->
-    <section id="github">
-      <h2>GitHub Summary</h2>
-      <p style="text-align:center;">Here’s a quick look at my GitHub activity and top languages:</p>
-      <div class="github-stats">
-        <!-- Stats Card -->
-        <img src="https://github-readme-stats.vercel.app/api?username=carlo8767&show_icons=true&theme=default" alt="GitHub Stats">
-        <!-- Top Languages Card -->
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=carlo8767&layout=compact&theme=default" alt="Top Languages">
-      </div>
-    </section>
-    <!-- End GitHub Summary Section -->
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        📧 <a href="mailto:carlo8767@gmail.com">your.email@example.com</a><br>
-        💼 <a href="https://github.com/carlo8767">github.com/yourusername</a><br>
-        🔗 <a href="https://www.linkedin.com/in/yourprofile/">LinkedIn</a>
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    © 2025 Your Name – Java Software Engineer Portfolio
-  </footer>
-
+</p>
+</section>
+<section id="skills">
+<h2>Technical Skills</h2>
+<ul>
+<li>Java, Spring Boot, Spring MVC, JUnit, Mockito</li>
+<li>Microservices, REST API Design, AWS (S3, Lambda, Cognito)</li>
+<li>SQL, Redis, Docker, Jenkins, Postman</li>
+<li>Agile / Scrum, Git, Jira, Power BI</li>
+</ul>
+</section>
+<section id="experience">
+<h2>Professional Experience</h2>
+<details open>
+<summary>View Experience</summary>
+<ul>
+<li><strong>MDR (Germany)</strong> – Java Software Developer (2024–2025)</li>
+<li><strong>Spindox (Italy)</strong> – Java Software Engineer (2023)</li>
+<li><strong>Konnech (Australia)</strong> – Java Software Engineer (2022–2023)</li>
+<li><strong>Nextre & Accenture (Italy)</strong> – Java Engineer (2021–2022)</li>
+</ul>
+</details>
+</section>
+<section id="education">
+<h2>Education</h2>
+<p><strong>Bachelor of Computer Science</strong> – Leipzig University (2024–Present)</p>
+<ul>
+<li>Languages: Python, C, Java</li>
+<li>Algorithms: Dijkstra, Insertion Sort, Binary Search</li>
+<li>Machine Learning: Smile Classification & Clustering</li>
+</ul>
+</section>
+<section id="github">
+<h2>GitHub Summary</h2>
+<p style="text-align:center;">Here’s a quick look at my GitHub activity and top languages:</p>
+<div class="github-stats">
+<img src="https://github-readme-stats.vercel.app/api?username=carlo8767&show_icons=true&theme=tokyonight" alt="GitHub Stats">
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=carlo8767&layout=compact&theme=tokyonight" alt="Top Languages">
+</div>
+</section>
+<section id="contact">
+<h2>Contact</h2>
+<p style="text-align:center;">
+        📧 <a href="mailto:carlo8767@gmail.com">carlo8767@gmail.com</a><br>
+        💼 <a href="https://github.com/carlo8767">github.com/carlo8767</a><br>
+        🔗 <a href="https://www.linkedin.com/in/carlo-carraro-946809154/">LinkedIn</a>
+</p>
+</section>
+</main>
+<footer>
+    © 2025 Carlo — Java Software Engineer Portfolio
+</footer>
+<button id="scrollTopBtn">↑</button>
+<script>
+// Typing effect
+const typedText = document.getElementById("typedText");
+const text = "Hi, I’m a Java Software Engineer 👋";
+let index = 0;
+function type() {
+if (index < text.length) {
+typedText.textContent += text.charAt(index);
+index++;
+setTimeout(type, 70);
+      }
+    }
+type();
+// Scroll reveal animation
+const sections = document.querySelectorAll("section");
+const revealOnScroll = () => {
+const trigger = window.innerHeight * 0.85;
+sections.forEach(sec => {
+const top = sec.getBoundingClientRect().top;
+if (top < trigger) sec.classList.add("visible");
+      });
+    };
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+// Scroll to top button
+const scrollBtn = document.getElementById("scrollTopBtn");
+window.onscroll = function() {
+scrollBtn.style.display = (document.documentElement.scrollTop > 300) ? "block" : "none";
+    };
+scrollBtn.onclick = function() {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+// Theme toggle
+const toggle = document.querySelector(".toggle-theme");
+toggle.addEventListener("click", () => {
+document.body.classList.toggle("light");
+toggle.textContent = document.body.classList.contains("light") ? "🌞" : "🌙";
+    });
+</script>
 </body>
 </html>
