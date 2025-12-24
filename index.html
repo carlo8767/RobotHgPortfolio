@@ -1,122 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Java Software Engineer | Portfolio</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Resolution Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-<button class="toggle-theme">🌙</button>
-<h1 id="typedText"></h1>
-<p>Building scalable backend solutions with Java, Spring Boot, and AWS</p>
-<div class="header-buttons">
-<a href="#contact" class="btn hire-me">Hire Me</a>
-</div>
-</header>
-<main>
-<section id="about">
-<h2>About Me</h2>
-<p>
-      I am a <strong>Java Software Engineer</strong> with international experience in
-<strong>Germany, Italy, and Australia</strong>, specializing in
-<strong>Spring Boot</strong>, <strong>Microservices</strong>, and <strong>AWS</strong>.
-</p>
-<p>
-      Currently pursuing a <strong>Bachelor’s in Computer Science in Leipzig</strong>,
-      focusing on algorithms, computer architecture, and machine learning.
-</p>
-</section>
-<section id="skills">
-<h2>Technical Skills</h2>
-<ul>
-<li>Java, Spring Boot, Spring MVC, JUnit, Mockito</li>
-<li>Microservices, REST API Design, AWS (S3, Lambda, Cognito)</li>
-<li>SQL, Redis, Docker, Jenkins, Postman</li>
-<li>Agile / Scrum, Git, Jira, Power BI</li>
-</ul>
-</section>
-<section id="experience">
-<h2>Professional Experience</h2>
-<details open>
-<summary>View Experience</summary>
-<ul>
-<li><strong>MDR (Germany)</strong> – Java Software Developer (2024–2025)</li>
-<li><strong>Spindox (Italy)</strong> – Java Software Engineer (2023)</li>
-<li><strong>Konnech (Australia)</strong> – Java Software Engineer (2022–2023)</li>
-<li><strong>Nextre & Accenture (Italy)</strong> – Java Engineer (2021–2022)</li>
-</ul>
-</details>
-</section>
-<section id="education">
-<h2>Education</h2>
-<p><strong>Bachelor of Computer Science</strong> – Leipzig University (2024–Present)</p>
-<ul>
-<li>Languages: Python, C, Java</li>
-<li>Algorithms: Dijkstra, Insertion Sort, Binary Search</li>
-<li>Machine Learning: Smile Classification & Clustering</li>
-</ul>
-</section>
-<section id="github">
-<h2>GitHub Summary</h2>
-<p style="text-align:center;">Here’s a quick look at my GitHub activity and top languages:</p>
-<div class="github-stats">
-<img src="https://github-readme-stats.vercel.app/api?username=carlo8767&show_icons=true&theme=tokyonight" alt="GitHub Stats">
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=carlo8767&layout=compact&theme=tokyonight" alt="Top Languages">
-</div>
-</section>
-<section id="contact">
-<h2>Contact</h2>
-<p style="text-align:center;">
-      📧 <a href="mailto:carlo8767@gmail.com">carlo8767@gmail.com</a><br>
-      💼 <a href="https://github.com/carlo8767">github.com/carlo8767</a><br>
-      🔗 <a href="https://www.linkedin.com/in/carlo-carraro-946809154/">LinkedIn</a>
-</p>
-</section>
-</main>
-<footer>
-  © 2025 Carlo — Java Software Engineer Portfolio
-</footer>
-<button id="scrollTopBtn">↑</button>
-<script>
-// Typing effect
-const typedText = document.getElementById("typedText");
-const text = "Hi, I’m a Java Software Engineer 👋";
-let index = 0;
-function type() {
-if (index < text.length) {
-typedText.textContent += text.charAt(index);
-index++;
-setTimeout(type, 70);
-    }
-  }
-type();
-// Scroll reveal
-const sections = document.querySelectorAll("section");
-const revealOnScroll = () => {
-const trigger = window.innerHeight * 0.85;
-sections.forEach(sec => {
-const top = sec.getBoundingClientRect().top;
-if (top < trigger) sec.classList.add("visible");
-    });
-  };
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
-// Scroll to top
-const scrollBtn = document.getElementById("scrollTopBtn");
-window.onscroll = function() {
-scrollBtn.style.display = (document.documentElement.scrollTop > 300) ? "block" : "none";
-  };
-scrollBtn.onclick = function() {
-window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-// Theme toggle
-const toggle = document.querySelector(".toggle-theme");
-toggle.addEventListener("click", () => {
-document.body.classList.toggle("light");
-toggle.textContent = document.body.classList.contains("light") ? "🌞" : "🌙";
-  });
-</script>
+    <header>
+        <h1>Hello, It's Carlo here</h1>
+         <h1>This is a lists of bug and my problem solving encounter in my carrer as Software Engineering</h1>
+        <h3>Expertise in debugging, optimization, frontend & backend, security</h3>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Debugging & Performance Optimization</h2>
+            <ul>
+                <li>Thread debugging and scheduling issues resolved using locks, semaphores and synchronized blocks.</li>
+                <li>Fixed file reading bug, encoding mismatches, and large file streaming.</li>
+                <li>Debugged multi-service issues with distributed tracing</li>
+                <li>Profiled and optimized code performance, fixed memory leaks</li>
+                <li>Improved query performance with table indexing and analysis performance</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Frontend Development (Angular)</h2>
+            <ul>
+                <li>Resolved Angular change detection issues using ChangeDetectorRef and OnPush strategy.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Security & Database Management</h2>
+            <ul>
+                <li>Prevented SQL injection with parameterized queries and ORM tools.</li>
+                <li>Validated DB parameters and debugged connection pool misconfigurations.</li>
+                <li>Performed advande database clean to optimize storage and queries.</li>
+                <li>Debugged stored procedures; opted for JPA queries where feasible.</li>
+                <li>Implemented secure password encryption</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Architecture & Infrastructure</h2>
+            <ul>
+                <li>Designed scalable modular monoliths and microservices architectures.</li>
+                <li>Managed Spring Boot server configs and environment profiles.</li>
+                <li>Handled JSF implementations resolving rendering/state issues.</li>
+                <li>Configured Maven POM files, dependencies, and build profiles.</li>
+                <li>Implemented robust file handling for uploads/downloads.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>CI/CD & DevOps</h2>
+            <ul>
+                <li>Set up Jenkins pipelines for automated builds, tests, and deployments.</li>
+                <li>Facilitated Agile session Miro for sprint and issue tracking.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>API Development & Testing</h2>
+            <ul>
+                <li>Mapped and tested APIs with Postman, automated regression testing.</li>
+                <li>Generated API docs using Swagger/OpenAPI.</li>
+                <li>Customized JSON serialization/deserialization with Jackson.</li>
+                <li>Wrote unit tests using Mockito for isolated service testing.</li>
+                <li>Optimized Spring JPA relation queries, avoiding N+1 problems.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Cloud & Functional Programming</h2>
+            <ul>
+                <li>Integrated AWS services: Cognito (auth), API Gateway, Lambda.</li>
+                <li>Implemented Java Lambdas with functional interfaces and streams.</li>
+                <li>Used Python Lambdas for AWS scripts with S3/DynamoDB integration.</li>
+            </ul>
+        </div>
+    </main>
 </body>
 </html>
